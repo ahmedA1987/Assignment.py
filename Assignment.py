@@ -2,6 +2,11 @@
 Ahmed Abdulsahib
 Tampere university
 Student number 293895
+
+task description:
+this task is about the function (control_signal) that takes the linear and angular velocities
+and calculate the needed loader turn then convert the turning angle to steering signal then return
+the signal
 """
 from math import *
 
