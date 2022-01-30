@@ -11,7 +11,7 @@ the signal
 from math import *
 
 
-def control_signal(linear_velocity, angular_velocity, f1=0.6, f2=0.6, max_turn=42, Beta=0):
+def control_signal(linear_velocity, angular_velocity, f1=0.6, f2=0.6, max_turn=42, Beta_angle=0):
     """
     passed parameters
         linear_velocity: type float:
@@ -41,9 +41,9 @@ def control_signal(linear_velocity, angular_velocity, f1=0.6, f2=0.6, max_turn=4
     alpha_1 = acos((pow(f1, 2) + pow(f3, 2) - pow(radius, 2)) / (2 * f1 * f3))
     alpha_2 = acos((pow(f2, 2) + pow(f3, 2) - pow(radius, 2)) / (2 * f2 * f3))
     theata = 180 - degrees(alpha_1) - degrees(alpha_2)
-    if abs(Beta - theata * direction) >= max_turn:
+    if abs(Beta_angle - theata * direction) >= max_turn:
         return direction
-    elif Beta > theata * direction:
-        return -1 * abs(Beta - theata * direction) * direction / max_turn
+    elif Beta_angle > theata * direction:
+        return -1 * abs(Beta_angle - theata * direction) * direction / max_turn
     else:
-        abs(Beta - theata * direction) * direction / max_turn
+        abs(Beta_angle - theata * direction) * direction / max_turn
