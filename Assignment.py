@@ -33,17 +33,19 @@ def control_signal(linear_velocity, angular_velocity, f1=0.6, f2=0.6, max_turn=4
         the function will return signal ( number in  [-1 : 1]
 
     """
-    if angular_velocity == 0:
-        return 0
+    if angular_velocity == 0 or linear_velocity == 0:
+        return -1 * Beta_angle / max_turn
     direction = int(angular_velocity / abs(angular_velocity))
     radius = linear_velocity / abs(angular_velocity)
     f3 = sqrt(pow(radius, 2) + pow(f1, 2))
     alpha_1 = acos((pow(f1, 2) + pow(f3, 2) - pow(radius, 2)) / (2 * f1 * f3))
     alpha_2 = acos((pow(f2, 2) + pow(f3, 2) - pow(radius, 2)) / (2 * f2 * f3))
     theata = 180 - degrees(alpha_1) - degrees(alpha_2)
+    if theata > max_turn:
+        theata = max_turn
     if abs(Beta_angle - theata * direction) >= max_turn:
         return direction
     elif Beta_angle > theata * direction:
-        return -1 * abs(Beta_angle - theata * direction) * direction / max_turn
+        return -1 * abs(Beta_angle - theata * direction) / max_turn
     else:
-        abs(Beta_angle - theata * direction) * direction / max_turn
+        abs(Beta_angle - theata * direction) / max_turn
