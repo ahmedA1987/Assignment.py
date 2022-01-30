@@ -43,5 +43,7 @@ def control_signal(linear_velocity, angular_velocity, f1=0.6, f2=0.6, max_turn=4
     theata = 180 - degrees(alpha_1) - degrees(alpha_2)
     if abs(Beta - theata * direction) >= max_turn:
         return direction
+    elif Beta > theata * direction:
+        return -1 * abs(Beta - theata * direction) * direction / max_turn
     else:
-        return abs(Beta - theata * direction) * direction / max_turn
+        abs(Beta - theata * direction) * direction / max_turn
