@@ -21,8 +21,7 @@ def control_signal(linear_velocity, angular_velocity, f1=0.6, f2=0.6, max_turn=4
             the initial value from the assignment paper but it is possible to pass new value.
         max_turn: type int: this represent the maximum loader turning angle and if it is not
                 passed the function then from the assignment paper it is 42 degree
-        beta: type float : represent the actual turn angle from the Loader center
-
+        Beta: type float: represent the actual turn angle from the Loader center
         :var
         direction: type int: represent the direction of the turn and it is either -1 or 1
         f3 : the distance from the loader center and turn circle center
@@ -31,7 +30,7 @@ def control_signal(linear_velocity, angular_velocity, f1=0.6, f2=0.6, max_turn=4
         theata: is the turn angle in degree
 
         :return
-        the function will return signal ( number in  [-1 : 1])
+        the function will return signal ( number in  [-1 : 1]
 
     """
     if angular_velocity == 0:
