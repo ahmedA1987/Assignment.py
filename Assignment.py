@@ -44,7 +44,7 @@ def control_signal(linear_velocity, angular_velocity, f1=0.6, f2=0.6, max_turn=4
     if theata > max_turn:
         theata = max_turn
     if abs(Beta_angle - theata * direction) >= max_turn:
-        return direction
+        return -1 * abs(Beta_angle - theata * direction)/(Beta_angle - theata * direction)
     elif Beta_angle > theata * direction:
         return -1 * abs(Beta_angle - theata * direction) / max_turn
     else:
