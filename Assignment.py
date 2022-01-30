@@ -27,6 +27,7 @@ def control_signal(linear_velocity, angular_velocity, f1=0.6, f2=0.6, max_turn=4
         alpha_1: type float: represent the angle between f1 and f3
         alpha_2: type float: represent the angle between f2 and f3
         theata: is the turn angle in degree
+        beta: global variable: represent the actual turn angle from the Loader center
 
         :return
         the function will return signal ( number in  [-1 : 1]
